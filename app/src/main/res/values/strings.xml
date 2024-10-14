@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Crossword Solver</string>
     <string name="choose_length">Выберите количество букв в слове</string>
+    <string name="length_reminder">Напоминание: длина искомого слова - </string>
+    <string name="choose_mode">Выберите режим поиска</string>
+    <string name="mode_set">По множеству букв</string>
+    <string name="mode_mask">По маске</string>
+    <string name="mode_set_description">Идеально для таких игр как \"Словли\" и \"5 букв\"</string>
+    <string name="mode_mask_description">Идеально для кроссвордов и сканвордов</string>
+    <string name="mode_exlude_letters">Исключение букв</string>
+    <string name="choose_letters">Отметьте нужные буквы</string>
+    <string name="result">Результаты</string>
+    <string name="words_found">Найдено слов: </string>
+    <string name="not_found">Ничего не найдено</string>
+    <string name="try_again">Попробовать снова</string>
+    <string name="i_am_button">Я кнопка :)</string>
+    <string name="click_me">нажми меня</string>
+
 </resources>
