@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Crossword Solver</string>
+    <string name="choose_length">Выберите количество букв в слове</string>
+</resources>
