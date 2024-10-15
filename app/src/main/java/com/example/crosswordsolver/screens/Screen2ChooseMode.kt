@@ -22,7 +22,7 @@ private const val MODE_SET = 1
 private const val MODE_MASK = 2
 
 @Composable
-fun Screen2ChooseMode(
+fun ScreenChooseMode(
     onButtonModeClick: (Int) -> Unit
 ) {
     Column(
@@ -81,7 +81,7 @@ private fun DisplayButtons(
 @Composable
 fun DisplayDescription() {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = Modifier.fillMaxWidth(),
     ) {
         for (i in 1..2) {
             val modeText = if (i == MODE_SET) {
