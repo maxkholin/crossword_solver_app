@@ -9,32 +9,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.crosswordsolver.R
+
+private const val START_POSITION = 3
 
 /**
  * Композ-функция, отвечающая за экран Выбора Длины Слова.
  *
  * @param onButtonLengthClick - функция обратного вызова, вызываемая при нажатии кнопки,
  *                       которая принимает длину слова и загружает соответствующий список слов.
- */
-@Composable
-fun Screen1WordLength(
-    onButtonLengthClick: (Int) -> Unit
-) {
-    Screen1Display(onButtonLengthClick = onButtonLengthClick)
-}
-
-/**
- * Композ-функция, отвечающая за отрисовку данного экрана.
  *
  * - [Text] - элемент текста, предлагающий пользователю выбрать длину слова.
  * - [ButtonGrid] - функция, отображающая сетку из 12 кнопок для выбора длины слова.
  */
 @Composable
-private fun Screen1Display(onButtonLengthClick: (Int) -> Unit) {
+fun ScreenWordLength(
+    onButtonLengthClick: (Int) -> Unit
+) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -68,13 +61,13 @@ private fun ButtonGrid(
             .padding(start = 0.dp, end = 0.dp, top = 0.dp),
         verticalArrangement = Arrangement.Center
     ) {
-        var value = 3
-        for (x in 1..4) {
+        var value = START_POSITION
+        for (rows in 1..4) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                for (y in 3..5) {
+                for (columns in 1..3) {
                     val buttonValue = value
                     Button(
                         onClick = {
@@ -97,9 +90,3 @@ private fun ButtonGrid(
     }
 }
 
-@Preview
-@Composable
-
-fun Screen1Preview() {
-    Screen1WordLength {  }
-}
