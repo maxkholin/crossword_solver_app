@@ -1,13 +1,17 @@
-package ui.screens
+package com.example.crosswordsolver.screens
 
-
-import androidx.compose.foundation.layout.*
-
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,7 +27,7 @@ private const val MODE_MASK = 2
 
 @Composable
 fun ScreenChooseMode(
-    onButtonModeClick: (Int) -> Unit
+    onModeButtonClick: (Int) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -38,14 +42,14 @@ fun ScreenChooseMode(
             textAlign = TextAlign.Center,
             fontSize = 36.sp
         )
-        DisplayButtons(onButtonModeClick)
+        DisplayButtons(onModeButtonClick)
         DisplayDescription()
     }
 }
 
 @Composable
 private fun DisplayButtons(
-    onButtonModeClick: (Int) -> Unit
+    onModeButtonClick: (Int) -> Unit
 ) {
     Row(
         modifier = Modifier
@@ -57,7 +61,7 @@ private fun DisplayButtons(
         for (i in 1..2) {
             val modeButton = if (i == MODE_SET) MODE_SET else MODE_MASK
             Button(
-                onClick = { onButtonModeClick(modeButton) },
+                onClick = { onModeButtonClick(modeButton) },
                 modifier = Modifier
                     .padding(16.dp)
                     .size(160.dp)
