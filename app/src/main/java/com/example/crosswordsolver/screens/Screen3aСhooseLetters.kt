@@ -1,4 +1,4 @@
-package ui.screens
+package com.example.crosswordsolver.screens
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
@@ -21,10 +21,10 @@ import com.example.crosswordsolver.model.LetterButtonModel
 
 @Composable
 fun ScreenChooseLetters(
-    onButtonLetterClick: (LetterButtonModel) -> Unit,
+    onLetterButtonClick: (LetterButtonModel) -> Unit,
     chosenLetters: Set<LetterButtonModel>,
     trigger: Boolean,
-    onButtonNextClick: () -> Unit,
+    onNextButtonClick: () -> Unit,
     appScreen: AppScreen
 ) {
     val configuration = LocalConfiguration.current
@@ -41,17 +41,17 @@ fun ScreenChooseLetters(
 
     if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
         VerticalLayout(
-            onButtonLetterClick,
+            onLetterButtonClick,
             chosenLetters,
-            onButtonNextClick,
+            onNextButtonClick,
             text,
             color
         )
     } else {
         HorizontalLayout(
-            onButtonLetterClick,
+            onLetterButtonClick,
             chosenLetters,
-            onButtonNextClick,
+            onNextButtonClick,
             text,
             color
         )
@@ -60,9 +60,9 @@ fun ScreenChooseLetters(
 
 @Composable
 fun VerticalLayout(
-    onButtonLetterClick: (LetterButtonModel) -> Unit,
+    onLetterButtonClick: (LetterButtonModel) -> Unit,
     chosenLetters: Set<LetterButtonModel>,
-    onButtonNextClick: () -> Unit,
+    onNextButtonClick: () -> Unit,
     text: String,
     color: Color,
 
@@ -84,13 +84,13 @@ fun VerticalLayout(
         )
         Spacer(modifier = Modifier.height(32.dp))
         CreateButtons(
-            onButtonLetterClick,
+            onLetterButtonClick,
             chosenLetters,
             Configuration.ORIENTATION_PORTRAIT,
             color
         )
         Spacer(modifier = Modifier.height(32.dp))
-        Button(onClick = onButtonNextClick) {
+        Button(onClick = onNextButtonClick) {
             Text(
                 text = stringResource(R.string.next),
                 fontSize = 24.sp,
@@ -102,9 +102,9 @@ fun VerticalLayout(
 
 @Composable
 fun HorizontalLayout(
-    onButtonLetterClick: (LetterButtonModel) -> Unit,
+    onLetterButtonClick: (LetterButtonModel) -> Unit,
     chosenLetters: Set<LetterButtonModel>,
-    onButtonNextClick: () -> Unit,
+    onNextButtonClick: () -> Unit,
     text: String,
     color: Color
 ) {
@@ -121,13 +121,13 @@ fun HorizontalLayout(
         )
         Spacer(modifier = Modifier.height(24.dp))
         CreateButtons(
-            onButtonLetterClick,
+            onLetterButtonClick,
             chosenLetters,
             Configuration.ORIENTATION_LANDSCAPE,
             color
         )
         Spacer(modifier = Modifier.height(24.dp))
-        Button(onClick = onButtonNextClick) {
+        Button(onClick = onNextButtonClick) {
             Text(
                 text = stringResource(R.string.next),
                 fontSize = 24.sp,
@@ -140,7 +140,7 @@ fun HorizontalLayout(
 
 @Composable
 private fun CreateButtons(
-    onButtonLetterClick: (LetterButtonModel) -> Unit,
+    onLetterButtonClick: (LetterButtonModel) -> Unit,
     chosenLetters: Set<LetterButtonModel>,
     orientation: Int,
     color: Color
@@ -167,7 +167,7 @@ private fun CreateButtons(
             ) {
                 group.forEach { letter ->
                     Button(
-                        onClick = { onButtonLetterClick(letter) },
+                        onClick = { onLetterButtonClick(letter) },
                         colors = ButtonDefaults.buttonColors(
                             containerColor = if (letter.isPressed) {
                                 color
