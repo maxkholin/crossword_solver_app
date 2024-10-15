@@ -9,6 +9,8 @@
     <string name="mode_mask_description">Идеально для кроссвордов и сканвордов</string>
     <string name="mode_exlude_letters">Исключение букв</string>
     <string name="choose_letters">Отметьте нужные буквы</string>
+    <string name="exlude_letters">Отметьте буквы, которые надо исключить</string>
+    <string name="next">Далее</string>
     <string name="result">Результаты</string>
     <string name="words_found">Найдено слов: </string>
     <string name="not_found">Ничего не найдено</string>
